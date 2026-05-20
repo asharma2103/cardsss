@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MadeWithEfforts ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="background">
+    <div class="bokeh-container" id="bokeh-container"></div>
+    <div class="floating-hearts" id="floating-hearts"></div>
+  </div>
+
+  <!-- STAGE 1 - Intro -->
+  <section class="stage stage-1" id="stage-1">
+    <div class="intro-content">
+      <h1 class="intro-title">
+        <span class="title-line">This is for you </span>
+        <span class="heart-icon">❤️</span>
+      </h1>
+      <p class="intro-subtitle">I made this just for you</p>
+      <button class="premium-button" onclick="scrollToStage2()">
+        <span class="button-text">Begin Our Story</span>
+        <span class="button-shine"></span>
+        <span class="button-glow"></span>
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <span>or scroll down</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- STAGE 2 - Note + Drag Reveal -->
+  <section class="stage stage-2" id="stage-2">
+    <div class="romantic-frame" id="romantic-frame">
+      <div class="particles-container" id="particles-container"></div>
+
+      <div class="note-content" id="note-content">
+        <p class="romantic-note">
+          Hey Babyyy!!! You are the best in this world
+          <br>
+          Every moment with you feels like magic...
+          <br><br>
+          Your smile lights up my darkest days,
+          <br>
+          and your love makes everything beautiful.
+          <br>
+          you are the most cutestt 🤭
+          <br><br>
+          See the magic
+        </p>
+      </div>
+
+      <!-- Added referrerpolicy="no-referrer" for raw GitHub URL support -->
+      <div class="reveal-image" id="reveal-image">
+        <img 
+          src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-1391501162.jpg" 
+          alt="Our beautiful moment" 
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+      </div>
+
+      <div class="drag-slider" id="drag-slider">
+        <div class="slider-track" id="slider-track">
+          <div class="slider-progress" id="slider-progress"></div>
+          <div class="slider-handle" id="slider-handle">
+            <span>❤</span>
+          </div>
+        </div>
+        <p class="slider-text">Drag to reveal the magic →</p>
+      </div>
+    </div>
+
+    <button class="premium-button secondary" onclick="scrollToStage3()">
+      <span class="button-text">Something more awaits →</span>
+      <span class="button-shine"></span>
+    </button>
+  </section>
+
+  <!-- STAGE 3 - Memory Card Game -->
+  <section class="stage stage-3" id="stage-3">
+    <h2 class="stage-title">Your Precious Memories</h2>
+    <p class="stage-subtitle">Click a card to reveal your moments </p>
+
+    <div class="cards-container">
+      <div class="cards-wrapper" id="cards-wrapper">
+        
+        <!-- Card images defined directly in HTML - paste your raw GitHub URLs in the src attribute -->
+        <div class="card-image-source" data-card-id="1">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-1652805813.jpg" alt="Memory 1" />
+        </div>
+        <div class="card-image-source" data-card-id="2">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-1827152854.jpg" alt="Memory 2" />
+        </div>
+        <div class="card-image-source" data-card-id="3">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-2013413363.jpg" alt="Memory 3" />
+        </div>
+        <div class="card-image-source" data-card-id="4">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-235857752.jpg" alt="Memory 4" />
+        </div>
+        <div class="card-image-source" data-card-id="5">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-532589951.jpg" alt="Memory 5" />
+        </div>
+        <div class="card-image-source" data-card-id="6">
+          <img src="https://raw.githubusercontent.com/asharma2103/Drag_the_cards_siimmi/642c1d4869df7ea60937a9df1664a5792e682ad8/assets/image/Snapchat-629096516.jpg" alt="Memory 6" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card-buttons">
+      <button class="premium-button small" id="shuffle-btn" onclick="shuffleCards()">
+        <span class="button-text">✨ Shuffle Cards</span>
+        <span class="button-shine"></span>
+      </button>
+      <button class="premium-button small" id="spread-btn" onclick="spreadCards()">
+        <span class="button-text">🃏 Spread Cards</span>
+        <span class="button-shine"></span>
+      </button>
+    </div>
+
+    <p class="drag-hint" id="drag-hint">Drag cards to arrange them anywhere you like</p>
+
+    <p class="footer-message">Made with all my love, just for you ❤️</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

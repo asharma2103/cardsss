@@ -1,0 +1,662 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #fff5f0 0%, #fef0e8 50%, #fff9f5 100%);
+  min-height: 100vh;
+}
+
+/* Animated Background */
+.background {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fff5f0 0%, #fef0e8 50%, #fff9f5 100%);
+  z-index: -10;
+  overflow: hidden;
+}
+
+.bokeh-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bokeh {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.4) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  animation: rise 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Stages */
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Stage 1 - Intro */
+.stage-1 {
+  text-align: center;
+}
+
+.intro-content {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.intro-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: #b76e79;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 20px rgba(183, 110, 121, 0.3);
+}
+
+.title-line {
+  display: block;
+}
+
+.heart-icon {
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  font-size: 1.2em;
+}
+
+.intro-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #c9a0a0;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium Buttons */
+.premium-button {
+  position: relative;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  background: linear-gradient(135deg, #b76e79 0%, #d4a574 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(183, 110, 121, 0.4);
+}
+
+.premium-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(183, 110, 121, 0.5);
+}
+
+.premium-button.secondary {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, #d4a574 0%, #c9a0a0 100%);
+}
+
+.premium-button.small {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.button-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 3s ease-in-out infinite;
+}
+
+.button-glow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #b76e79, #d4a574, #b76e79);
+  z-index: -1;
+  animation: glow 2s ease-in-out infinite;
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  color: #c9a0a0;
+  animation: bounce 2s ease-in-out infinite;
+  text-align: center;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Stage 2 - Romantic Frame */
+.romantic-frame {
+  position: relative;
+  width: min(90vw, 600px);
+  min-height: 450px;
+  background: linear-gradient(145deg, #fff9f9, #fff5f0);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(183, 110, 121, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(212, 165, 116, 0.3);
+  overflow: hidden;
+}
+
+.romantic-frame::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid rgba(183, 110, 121, 0.2);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.note-content {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.note-content.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  position: absolute;
+}
+
+.romantic-note {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 2;
+  color: #8b6969;
+  text-align: center;
+  font-style: italic;
+}
+
+.reveal-image {
+  position: absolute;
+  inset: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 1s ease;
+  pointer-events: none;
+}
+
+.reveal-image.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.reveal-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Drag Slider */
+.drag-slider {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.drag-slider.hidden {
+  display: none;
+}
+
+.slider-track {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(90deg, #f5e6e8, #fef3e9);
+  border-radius: 25px;
+  border: 2px solid rgba(183, 110, 121, 0.3);
+  overflow: hidden;
+}
+
+.slider-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ffb6c1, #d4a574);
+  border-radius: 25px;
+  transition: width 0.05s linear;
+  width: 0%;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #b76e79, #d4a574);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 4px 15px rgba(183, 110, 121, 0.4);
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  user-select: none;
+  touch-action: none;
+}
+
+.slider-handle:active {
+  cursor: grabbing;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-text {
+  margin-top: 1rem;
+  color: #c9a0a0;
+  font-style: italic;
+}
+
+/* Particles */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: particleRise 3s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes particleRise {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.5);
+  }
+}
+
+/* Stage 3 - Memory Cards */
+.stage-3 {
+  padding-top: 4rem;
+  min-height: 100vh;
+}
+
+.stage-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #b76e79;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.stage-subtitle {
+  color: #c9a0a0;
+  font-style: italic;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.cards-wrapper {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.cards-wrapper.spread-mode {
+  width: 600px;
+  height: 500px;
+}
+
+.memory-card {
+  position: absolute;
+  width: 220px;
+  height: 300px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  left: 50%;
+  top: 50%;
+  margin-left: -110px;
+  margin-top: -150px;
+}
+
+.memory-card.dragging {
+  cursor: grabbing;
+  transition: none;
+  box-shadow: 0 20px 50px rgba(183, 110, 121, 0.4);
+}
+
+.memory-card.spread {
+  cursor: grab;
+}
+
+.memory-card.spread:active {
+  cursor: grabbing;
+}
+
+.memory-card:hover:not(.dragging) {
+  box-shadow: 0 15px 40px rgba(183, 110, 121, 0.4);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.memory-card.revealed .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
+}
+
+.card-front {
+  background: linear-gradient(145deg, #fff5f0, #fef0e8);
+  border: 3px solid rgba(212, 165, 116, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-pattern {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(212, 165, 116, 0.3) 0%, transparent 50%);
+}
+
+.card-heart {
+  font-size: 4rem;
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(183, 110, 121, 0.3));
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.card-back {
+  background: linear-gradient(145deg, #b76e79, #d4a574);
+  transform: rotateY(180deg);
+  padding: 8px; /* Added inner padding for premium photo frame effect */
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px; /* Added subtle inner bezel with rounded corners */
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 0 4px rgba(0, 0, 0, 0.08); /* Added soft inner shadow */
+}
+
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memory-card.revealed:hover .card-glow {
+  opacity: 1;
+}
+
+/* Click Particles */
+.click-particle {
+  position: absolute;
+  font-size: 1rem;
+  pointer-events: none;
+  animation: particleBurst 1.5s ease-out forwards;
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)) scale(0.3) rotate(360deg);
+  }
+}
+
+/* Card Buttons */
+.card-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.premium-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.premium-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(183, 110, 121, 0.4);
+}
+
+.drag-hint {
+  margin-top: 1rem;
+  color: #c9a0a0;
+  font-style: italic;
+  text-align: center;
+  font-size: 0.9rem;
+  animation: fadeIn 0.5s ease-out;
+  display: none;
+}
+
+.drag-hint.visible {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer-message {
+  margin-top: 3rem;
+  color: #b76e79;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+/* Hide card image source divs - they are only used for data storage */
+.card-image-source {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    width: 160px;
+    height: 220px;
+  }
+
+  .cards-wrapper.spread-mode {
+    width: 350px;
+    height: 400px;
+  }
+
+  .memory-card {
+    width: 160px;
+    height: 220px;
+    margin-left: -80px;
+    margin-top: -110px;
+  }
+
+  .card-heart {
+    font-size: 2.5rem;
+  }
+
+  .romantic-frame {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+
+  .premium-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
